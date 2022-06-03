@@ -1,0 +1,39 @@
+{% load i18n %}
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Blog</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li {% if selected == 'index' %}class="active"{% endif %}><a href="/">
+      <i class="fa fa-home"></i> Home</a>
+      </li>
+      <li {% if selected == 'blog' %}class="active"{% endif %}><a href="/blog/">
+      <i class="fa fa-book"></i> Posts</a>
+      </li>
+      <li {% if selected == 'contact_us' %}class="active"{% endif %}><a href="/hello/">
+      <i class="fa fa-envelope"></i> Contact</a>
+      </li>
+      <li {% if selected == 'about' %}class="active"{% endif %}>
+      <a href=""></i> About</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li {% if selected == 'profile' %}class="active"{% endif %}>
+      <a href="#"></i> Profile</a>
+      </li>
+      {% endif %}
+    </ul>
+    {% include 'includes/header_sign_status.html' %}
+  </div>
+  <!-- /.navbar-collapse -->
+
+</div>
+<!-- /.container -->
