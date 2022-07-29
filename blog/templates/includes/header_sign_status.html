@@ -1,7 +1,7 @@
 {% load static i18n %}
 {% if user.is_authenticated %}
 
-<form id="logoutForm" action="#" method="post" >
+<form id="logoutForm" action="logout/" method="post" >
     {% csrf_token %}
     <ul class="nav navbar-nav navbar-right">
         <li><span class="navbar-brand">
@@ -11,12 +11,12 @@
                 Hello {{ user.full_name }}!
             {% endif %}
         </span></li>
-        <li><a href="#" id="logoutSubmit">{% trans 'Log off' %}</a></li>
+        <li><a href='logout/' id="logoutSubmit">{% trans 'Logout' %}</a></li>
     </ul>
 </form>
 {% else %}
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="{% url 'auth_app:login' %}">{% trans 'Sign in' %}</a></li>
-    <li><a href="{% url 'auth_app:sign_up' %}">{% trans 'Sign up' %}</a></li>
+    <li><a href="/login/">{% trans 'Login' %}</a></li>
+    <li><a href="/signup/">{% trans 'Sign up' %}</a></li>
 </ul>
 {% endif %}
